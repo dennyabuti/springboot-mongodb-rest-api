@@ -2,9 +2,11 @@ package com.nyabuti.dennis.springboot.mongodb.service.Author;
 
 import java.util.List;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.mongodb.client.result.DeleteResult;
 import com.nyabuti.dennis.springboot.mongodb.model.Author;
 
 @Repository
@@ -18,7 +20,9 @@ public class AuthorServiceImpl implements AuthorService {
 	@Override
 	public Author createAuthor(Author author) {
 		// TODO Auto-generated method stub
-		return null;
+		author.setId(ObjectId.get().toString());
+		mongoTemplete.save(author);
+		return author;
 	}
 
 	@Override
@@ -33,14 +37,16 @@ public class AuthorServiceImpl implements AuthorService {
 	}
 
 	@Override
-	public Author patchAuthor(String id, Author author) {
-		// TODO Auto-generated method stub
-		return null;
+	public Author patchAuthor(Author author) {
+		mongoTemplete.save(author);
+		return author;
 	}
 
 	@Override
-	public void deleteAuthor(String id) {
-		
+	public DeleteResult deleteAuthor(String id) {
+		Author author = mongoTemplete.findById(id, Author.class);
+		DeleteResult deleteResult = mongoTemplete.remove(author);
+		return deleteResult;
 	}
 
 }
