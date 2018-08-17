@@ -1,4 +1,4 @@
-package com.nyabuti.dennis.springboot.mongodb.service.Author;
+package com.nyabuti.dennis.springboot.mongodb.service.author;
 
 import java.util.List;
 
@@ -11,4 +11,5 @@ public interface AuthorService {
 	Author findById(String id);
 	Author patchAuthor(Author author);
 	DeleteResult deleteAuthor(String id);
+	// TODO add model relations
 }

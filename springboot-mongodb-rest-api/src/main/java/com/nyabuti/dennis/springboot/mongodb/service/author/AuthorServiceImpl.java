@@ -1,4 +1,4 @@
-package com.nyabuti.dennis.springboot.mongodb.service.Author;
+package com.nyabuti.dennis.springboot.mongodb.service.author;
 
 import java.util.List;
 
@@ -19,7 +19,6 @@ public class AuthorServiceImpl implements AuthorService {
 	
 	@Override
 	public Author createAuthor(Author author) {
-		// TODO Auto-generated method stub
 		author.setId(ObjectId.get().toString());
 		mongoTemplete.save(author);
 		return author;
@@ -27,7 +26,6 @@ public class AuthorServiceImpl implements AuthorService {
 
 	@Override
 	public List<Author> getAllAuthors() {
-		// TODO Auto-generated method stub
 		return mongoTemplete.findAll(Author.class);
 	}
 
