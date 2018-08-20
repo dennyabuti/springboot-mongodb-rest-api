@@ -1,4 +1,4 @@
-package com.nyabuti.dennis.springboot.mongodb.service.author;
+package com.nyabuti.dennis.springboot.mongodb.repository.author;
 
 import java.util.List;
 
@@ -10,10 +10,10 @@ import com.mongodb.client.result.DeleteResult;
 import com.nyabuti.dennis.springboot.mongodb.model.Author;
 
 @Repository
-public class AuthorServiceImpl implements AuthorService {
+public class AuthorRepositoryImpl implements AuthorRepository {
 	private final MongoTemplate mongoTemplete;
 	
-	public AuthorServiceImpl(MongoTemplate mongoTemplate) {
+	public AuthorRepositoryImpl(MongoTemplate mongoTemplate) {
 		this.mongoTemplete = mongoTemplate;
 	}
 	
@@ -43,8 +43,7 @@ public class AuthorServiceImpl implements AuthorService {
 	@Override
 	public DeleteResult deleteAuthor(String id) {
 		Author author = mongoTemplete.findById(id, Author.class);
-		DeleteResult deleteResult = mongoTemplete.remove(author);
-		return deleteResult;
+		return mongoTemplete.remove(author);
 	}
 
 }

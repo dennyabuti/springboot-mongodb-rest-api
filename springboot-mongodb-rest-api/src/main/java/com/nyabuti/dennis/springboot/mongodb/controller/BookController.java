@@ -12,37 +12,42 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.mongodb.client.result.DeleteResult;
 import com.nyabuti.dennis.springboot.mongodb.model.Book;
-import com.nyabuti.dennis.springboot.mongodb.service.book.BookService;
+import com.nyabuti.dennis.springboot.mongodb.repository.book.BookRepository;
 
 @RestController
 @RequestMapping("/books")
 public class BookController {
 	@Autowired
-	private BookService bookService;
+	private BookRepository bookRepository;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	List<Book> getAllBooks() {
-		return bookService.getAllBooks();
+		return bookRepository.getAllBooks();
 	}
 	
 	@RequestMapping(value="/", method = RequestMethod.POST)
 	public Book addBook(@Validated @RequestBody Book book) {
-		return bookService.createBook(book);
+		return bookRepository.createBook(book);
 	}
 	
 	@RequestMapping(value= "/{id}", method = RequestMethod.GET)
 	public Book findById(@PathVariable("id") String id) {
-		return bookService.findById(id);
+		return bookRepository.findById(id);
+	}
+	
+	@RequestMapping(value= "/find-by-publisher/{publisherId}", method = RequestMethod.GET)
+	public List<Book> findbyPublisher(@PathVariable("publisherId") String publisherId) {
+		return bookRepository.findByPublisherId(publisherId);
 	}
 	
 	@RequestMapping(value="/", method = RequestMethod.PATCH)
 	public Book patchBook(@Validated @RequestBody Book book) {
 		// TO DO require id to be provided
-		return bookService.patchBook(book);
+		return bookRepository.patchBook(book);
 	}
 	
 	@RequestMapping(value="/{id}", method = RequestMethod.DELETE)
-	public DeleteResult deleteCount(@PathVariable("id") String id) {
-		return bookService.deleteBook(id);
+	public DeleteResult deleteBook(@PathVariable("id") String id) {
+		return bookRepository.deleteBook(id);
 	}
 }

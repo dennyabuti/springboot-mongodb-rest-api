@@ -12,38 +12,38 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.mongodb.client.result.DeleteResult;
 import com.nyabuti.dennis.springboot.mongodb.model.Author;
-import com.nyabuti.dennis.springboot.mongodb.service.author.AuthorService;
+import com.nyabuti.dennis.springboot.mongodb.repository.author.AuthorRepository;
 
 @RestController
 @RequestMapping("/authors")
 public class AuthorController {
 	@Autowired
-	private AuthorService authorService;
+	private AuthorRepository authorRepository;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	List<Author> getAllAuthor() {
-		return authorService.getAllAuthors();
+		return authorRepository.getAllAuthors();
 	}
 	
 	@RequestMapping(value="/", method = RequestMethod.POST)
 	public Author addAuthor(@Validated @RequestBody Author author) {
-		return authorService.createAuthor(author);
+		return authorRepository.createAuthor(author);
 	}
 	
 	@RequestMapping(value= "/{id}", method = RequestMethod.GET)
 	public Author findById(@PathVariable("id") String id) {
-		return authorService.findById(id);
+		return authorRepository.findById(id);
 	}
 	
 	@RequestMapping(value="/", method = RequestMethod.PATCH)
 	public Author patchAuthor(@Validated @RequestBody Author author) {
 		// TO DO require id to be provided
-		return authorService.patchAuthor(author);
+		return authorRepository.patchAuthor(author);
 	}
 	
 	@RequestMapping(value="/{id}", method = RequestMethod.DELETE)
 	public DeleteResult deleteCount(@PathVariable("id") String id) {
-		return authorService.deleteAuthor(id);
+		return authorRepository.deleteAuthor(id);
 	}
 
 }

@@ -1,5 +1,6 @@
 package com.nyabuti.dennis.springboot.mongodb.model;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -7,12 +8,19 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Book {
 	@Id
 	private String id;
+	private ObjectId publisherId;
 	private String title;
 	private String summary;
 	private String isbn;
 	private String language;
 	private int pages;
 	
+	public String getPublisherId() {
+		return publisherId.toString();
+	}
+	public void setPublisherId(ObjectId publisherId) {
+		this.publisherId = publisherId;
+	}
 	public String getId() {
 		return id;
 	}
@@ -49,6 +57,4 @@ public class Book {
 	public void setPages(int pages) {
 		this.pages = pages;
 	}
-	
-	
 }

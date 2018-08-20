@@ -1,18 +1,21 @@
-package com.nyabuti.dennis.springboot.mongodb.service.book;
+package com.nyabuti.dennis.springboot.mongodb.repository.book;
 
 import java.util.List;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
 import com.mongodb.client.result.DeleteResult;
 import com.nyabuti.dennis.springboot.mongodb.model.Book;
 
 @Repository
-public class BookServiceImpl implements BookService {
+public class BookRepositoryImpl implements BookRepository {
 	private final MongoTemplate mongoTemplete;
-	public BookServiceImpl(MongoTemplate mongoTemplete) {
+	private Query query;
+	public BookRepositoryImpl(MongoTemplate mongoTemplete) {
 		this.mongoTemplete = mongoTemplete;
 	}
 	@Override
@@ -43,6 +46,12 @@ public class BookServiceImpl implements BookService {
 		Book book = mongoTemplete.findById(id, Book.class);
 		DeleteResult deleteResult = mongoTemplete.remove(book);
 		return deleteResult;
+	}
+	@Override
+	public List<Book> findByPublisherId(String publisherId) {
+		query = Query.query(Criteria.where("publisherId").is(new ObjectId(publisherId)));
+//		mongoTemplete.find
+		return mongoTemplete.find(query, Book.class);
 	}
 
 }
