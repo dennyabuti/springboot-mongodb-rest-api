@@ -12,13 +12,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.mongodb.client.result.DeleteResult;
 import com.nyabuti.dennis.springboot.mongodb.model.Book;
+import com.nyabuti.dennis.springboot.mongodb.model.Publisher;
 import com.nyabuti.dennis.springboot.mongodb.repository.book.BookRepository;
+import com.nyabuti.dennis.springboot.mongodb.repository.publisher.PublisherRepository;
 
 @RestController
 @RequestMapping("/books")
 public class BookController {
 	@Autowired
 	private BookRepository bookRepository;
+	@Autowired
+	private PublisherRepository publisherRepository;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	List<Book> getAllBooks() {
@@ -33,6 +37,12 @@ public class BookController {
 	@RequestMapping(value= "/{id}", method = RequestMethod.GET)
 	public Book findById(@PathVariable("id") String id) {
 		return bookRepository.findById(id);
+	}
+	
+	@RequestMapping(value = "/{id}/publisher", method = RequestMethod.GET)
+	Publisher getPublisher(@PathVariable("id") String id) {
+		Book book = bookRepository.findById(id);
+		return publisherRepository.findById(book.getPublisherId());
 	}
 	
 	@RequestMapping(value= "/find-by-publisher/{publisherId}", method = RequestMethod.GET)
