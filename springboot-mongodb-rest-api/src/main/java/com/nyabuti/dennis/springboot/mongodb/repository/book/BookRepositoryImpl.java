@@ -1,5 +1,6 @@
 package com.nyabuti.dennis.springboot.mongodb.repository.book;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.bson.types.ObjectId;
@@ -51,6 +52,15 @@ public class BookRepositoryImpl implements BookRepository {
 	public List<Book> findByPublisherId(String publisherId) {
 		query = Query.query(Criteria.where("publisherId").is(new ObjectId(publisherId)));
 //		mongoTemplete.find
+		return mongoTemplete.find(query, Book.class);
+	}
+	@Override
+	public List<Book> findByIds(List<String> ids) {
+		List<ObjectId> objectIds = new ArrayList<ObjectId>();
+		for (String id: ids) {
+			objectIds.add(new ObjectId(id));
+		}
+		query = new Query(Criteria.where("_id").in(objectIds));
 		return mongoTemplete.find(query, Book.class);
 	}
 

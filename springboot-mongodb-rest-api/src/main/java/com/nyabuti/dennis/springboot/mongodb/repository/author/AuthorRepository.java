@@ -9,6 +9,7 @@ public interface AuthorRepository {
 	Author createAuthor(Author author);
 	List<Author> getAllAuthors();
 	Author findById(String id);
+	List<Author> findByIds(List<String> ids);
 	Author patchAuthor(Author author);
 	DeleteResult deleteAuthor(String id);
 	// TODO add model relations

@@ -9,6 +9,7 @@ public interface BookRepository {
 	Book createBook(Book book);
 	List<Book> getAllBooks();
 	Book findById(String id);
+	List<Book> findByIds(List<String> ids);
 	List<Book> findByPublisherId(String id);
 	Book patchBook(Book book);
 	DeleteResult deleteBook(String id);
