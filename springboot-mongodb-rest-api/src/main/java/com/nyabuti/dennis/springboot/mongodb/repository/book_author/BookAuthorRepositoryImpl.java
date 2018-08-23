@@ -22,7 +22,6 @@ public class BookAuthorRepositoryImpl implements BookAuthorRepository {
 
 	@Override
 	public BookAuthor findById(String id) {
-		// TODO Auto-generated method stub
 		return mongoTemplate.findById(id, BookAuthor.class);
 	}
 

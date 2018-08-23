@@ -71,7 +71,6 @@ public class BookController {
 	
 	@RequestMapping(value="/", method = RequestMethod.PATCH)
 	public Book patchBook(@Validated @RequestBody Book book) {
-		// TO DO require id to be provided
 		return bookRepository.patchBook(book);
 	}
 	
