@@ -1,7 +1,6 @@
 package com.nyabuti.dennis.springboot.mongodb.controller;
 
 import static org.hamcrest.CoreMatchers.equalTo;
-import static org.mockito.Mockito.times;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -139,11 +138,9 @@ public class AuthorControllerTest {
 				.andExpect(jsonPath("$[0].pages", equalTo(8)));
 	}
 
-	//
 	@Test // remove author
 	public void removeAuthorTest() throws Exception {
 		Mockito.when(bookAuthorRepository.deleteByAuthorId(Mockito.anyString())).thenReturn(DeleteResult.acknowledged(1));
-//		Mockito.verify(bookAuthorRepository.deleteByAuthorId(Mockito.anyString()), times(1));
 		Mockito.when(authorRepository.deleteAuthor(Mockito.anyString())).thenReturn(DeleteResult.acknowledged(1));
 
 		RequestBuilder requestBuilder = MockMvcRequestBuilders.delete("/authors/1").accept(MediaType.APPLICATION_JSON);
