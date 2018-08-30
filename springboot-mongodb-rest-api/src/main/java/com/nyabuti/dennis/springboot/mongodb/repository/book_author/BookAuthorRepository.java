@@ -13,4 +13,6 @@ public interface BookAuthorRepository {
 	DeleteResult deleteBookAuthor(String id);
 	List<BookAuthor> findByAuthorId(String authorId);
 	List<BookAuthor> findByBookId(String bookId);
+	DeleteResult deleteByAuthorId(String AuthorId);
+	DeleteResult deleteByBookId(String bookId);
 }

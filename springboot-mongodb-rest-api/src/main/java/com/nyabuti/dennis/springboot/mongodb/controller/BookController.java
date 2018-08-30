@@ -76,6 +76,8 @@ public class BookController {
 	
 	@RequestMapping(value="/{id}", method = RequestMethod.DELETE)
 	public DeleteResult deleteBook(@PathVariable("id") String id) {
+		// delete book-authors first
+		bookAuthorRepository.deleteByBookId(id);
 		return bookRepository.deleteBook(id);
 	}
 }

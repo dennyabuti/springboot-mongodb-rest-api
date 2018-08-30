@@ -61,4 +61,16 @@ public class BookAuthorRepositoryImpl implements BookAuthorRepository {
 		return mongoTemplate.find(query, BookAuthor.class);
 	}
 
+	@Override
+	public DeleteResult deleteByAuthorId(String authorId) {
+		query = new Query(Criteria.where("authorId").is(new ObjectId(authorId)));
+		return mongoTemplate.remove(query, BookAuthor.class);
+	}
+
+	@Override
+	public DeleteResult deleteByBookId(String bookId) {
+		query = new Query(Criteria.where("bookId").is(new ObjectId(bookId)));
+		return mongoTemplate.remove(query, BookAuthor.class);
+	}
+
 }

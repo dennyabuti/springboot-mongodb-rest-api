@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mongodb.client.result.DeleteResult;
@@ -56,12 +57,14 @@ public class AuthorController {
 	
 	@RequestMapping(value="/", method = RequestMethod.PATCH)
 	public Author patchAuthor(@Validated @RequestBody Author author) {
-		// TO DO require id to be provided
+		// TO DO require id
 		return authorRepository.patchAuthor(author);
 	}
 	
 	@RequestMapping(value="/{id}", method = RequestMethod.DELETE)
 	public DeleteResult deleteCount(@PathVariable("id") String id) {
+		// remove book-authors first
+		bookAuthorRepository.deleteBookAuthor(id);
 		return authorRepository.deleteAuthor(id);
 	}
 
