@@ -1,6 +1,7 @@
 package com.nyabuti.dennis.springboot.mongodb.controller;
 
 import static org.hamcrest.CoreMatchers.equalTo;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -22,6 +23,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
+import com.mongodb.client.result.DeleteResult;
 import com.nyabuti.dennis.springboot.mongodb.model.Author;
 import com.nyabuti.dennis.springboot.mongodb.model.Book;
 import com.nyabuti.dennis.springboot.mongodb.repository.author.AuthorRepository;
@@ -112,6 +114,7 @@ public class BookAuthorTest {
 				.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8)).andExpect(jsonPath("id").value("1"))
 				.andExpect(jsonPath("title").value("Book0")).andExpect(jsonPath("language").value("English"));
 	}
+	
 	@Test
 	public void updateBookTest() throws Exception {
 		Mockito.when(bookRepository.patchBook(Mockito.<Book>any())).thenReturn(this.books.get(0));
@@ -121,5 +124,18 @@ public class BookAuthorTest {
 				.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
 				.andExpect(jsonPath("title").value("Book0")).andExpect(jsonPath("language").value("English"));
 	}
+	
+	@Test
+	public void removeBookTest() throws Exception {
+		Mockito.when(bookAuthorRepository.deleteByAuthorId(Mockito.anyString())).thenReturn(DeleteResult.acknowledged(1));
+		Mockito.when(bookRepository.deleteBook(Mockito.anyString())).thenReturn(DeleteResult.acknowledged(1));
 
+		RequestBuilder requestBuilder = MockMvcRequestBuilders.delete("/books/1").accept(MediaType.APPLICATION_JSON);
+		
+		mockMvc.perform(requestBuilder)
+			.andDo(print())
+			.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+			.andExpect(status().isOk())
+			.andExpect(jsonPath("$.deletedCount", equalTo(1)));
+	}
 }
