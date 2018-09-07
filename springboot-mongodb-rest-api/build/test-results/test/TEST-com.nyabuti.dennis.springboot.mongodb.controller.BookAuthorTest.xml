@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.nyabuti.dennis.springboot.mongodb.controller.BookAuthorTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2018-09-07T02:45:10" hostname="dennis-mac" time="0.02">
+  <properties/>
+  <testcase name="getBookById" classname="com.nyabuti.dennis.springboot.mongodb.controller.BookAuthorTest" time="0.011"/>
+  <testcase name="getBooks" classname="com.nyabuti.dennis.springboot.mongodb.controller.BookAuthorTest" time="0.006"/>
+  <system-out><![CDATA[2018-09-06 21:45:09.108  INFO 37641 --- [    Test worker] .b.t.a.w.s.WebMvcTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.nyabuti.dennis.springboot.mongodb.controller.BookAuthorTest], using SpringBootContextLoader
+2018-09-06 21:45:09.109  INFO 37641 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.nyabuti.dennis.springboot.mongodb.controller.BookAuthorTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2018-09-06 21:45:09.111  INFO 37641 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.nyabuti.dennis.springboot.mongodb.controller.BookAuthorTest]: BookAuthorTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2018-09-06 21:45:09.117  INFO 37641 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.nyabuti.dennis.springboot.mongodb.Application for test class com.nyabuti.dennis.springboot.mongodb.controller.BookAuthorTest
+2018-09-06 21:45:09.118  INFO 37641 --- [    Test worker] .b.t.a.w.s.WebMvcTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2018-09-06 21:45:09.120  INFO 37641 --- [    Test worker] .b.t.a.w.s.WebMvcTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@1574bc47, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@6197c4f, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@6b25d8eb, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@40d00bab, org.springframework.test.context.support.DirtiesContextTestExecutionListener@70f60172, org.springframework.test.context.transaction.TransactionalTestExecutionListener@3d40f027, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@786795e4, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@38aa5410, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@78972fe6, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@426c291b, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@6605c07, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@6c80920f]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.0.3.RELEASE)
+
+2018-09-06 21:45:09.148  WARN 37641 --- [    Test worker] ory$DuplicateJsonObjectContextCustomizer : 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/Users/Dennis.Nyabuti/.gradle/caches/modules-2/files-2.1/org.json/json/20171018/36ced462c97f0845b4a7b266a25cebe95d18baa3/json-20171018.jar!/org/json/JSONObject.class
+	jar:file:/Users/Dennis.Nyabuti/.gradle/caches/modules-2/files-2.1/com.vaadin.external.google/android-json/0.0.20131108.vaadin1/fa26d351fe62a6a17f5cda1287c1c6110dec413f/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2018-09-06 21:45:09.150  INFO 37641 --- [    Test worker] c.n.d.s.m.controller.BookAuthorTest      : Starting BookAuthorTest on dennis-mac with PID 37641 (started by Dennis.Nyabuti in /Users/Dennis.Nyabuti/git/springboot-mongodb-rest-api)
+2018-09-06 21:45:09.154  INFO 37641 --- [    Test worker] c.n.d.s.m.controller.BookAuthorTest      : No active profile set, falling back to default profiles: default
+2018-09-06 21:45:09.159  INFO 37641 --- [    Test worker] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@d62a305: startup date [Thu Sep 06 21:45:09 CDT 2018]; root of context hierarchy
+2018-09-06 21:45:09.663  INFO 37641 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-09-06 21:45:09.893  INFO 37641 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@d62a305: startup date [Thu Sep 06 21:45:09 CDT 2018]; root of context hierarchy
+2018-09-06 21:45:09.932  INFO 37641 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/books/],methods=[GET]}" onto java.util.List<com.nyabuti.dennis.springboot.mongodb.model.Book> com.nyabuti.dennis.springboot.mongodb.controller.BookController.getAllBooks()
+2018-09-06 21:45:09.934  INFO 37641 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/books/],methods=[PATCH]}" onto public com.nyabuti.dennis.springboot.mongodb.model.Book com.nyabuti.dennis.springboot.mongodb.controller.BookController.patchBook(com.nyabuti.dennis.springboot.mongodb.model.Book)
+2018-09-06 21:45:09.934  INFO 37641 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/books/{id}],methods=[DELETE]}" onto public com.mongodb.client.result.DeleteResult com.nyabuti.dennis.springboot.mongodb.controller.BookController.deleteBook(java.lang.String)
+2018-09-06 21:45:09.935  INFO 37641 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/books/{id}],methods=[GET]}" onto public com.nyabuti.dennis.springboot.mongodb.model.Book com.nyabuti.dennis.springboot.mongodb.controller.BookController.findById(java.lang.String)
+2018-09-06 21:45:09.937  INFO 37641 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/books/],methods=[POST]}" onto public com.nyabuti.dennis.springboot.mongodb.model.Book com.nyabuti.dennis.springboot.mongodb.controller.BookController.addBook(com.nyabuti.dennis.springboot.mongodb.model.Book)
+2018-09-06 21:45:09.938  INFO 37641 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/books/{id}/publisher],methods=[GET]}" onto public com.nyabuti.dennis.springboot.mongodb.model.Publisher com.nyabuti.dennis.springboot.mongodb.controller.BookController.getPublisher(java.lang.String)
+2018-09-06 21:45:09.940  INFO 37641 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/books/{id}/authors],methods=[GET]}" onto public java.util.List<com.nyabuti.dennis.springboot.mongodb.model.Author> com.nyabuti.dennis.springboot.mongodb.controller.BookController.getAuthors(java.lang.String)
+2018-09-06 21:45:09.940  INFO 37641 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/books/find-by-publisher/{publisherId}],methods=[GET]}" onto public java.util.List<com.nyabuti.dennis.springboot.mongodb.model.Book> com.nyabuti.dennis.springboot.mongodb.controller.BookController.findbyPublisher(java.lang.String)
+2018-09-06 21:45:09.947  INFO 37641 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-09-06 21:45:09.948  INFO 37641 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-09-06 21:45:09.985  INFO 37641 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-09-06 21:45:09.986  INFO 37641 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-09-06 21:45:10.172  INFO 37641 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring FrameworkServlet ''
+2018-09-06 21:45:10.172  INFO 37641 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
+2018-09-06 21:45:10.192  INFO 37641 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 19 ms
+2018-09-06 21:45:10.223  INFO 37641 --- [    Test worker] c.n.d.s.m.controller.BookAuthorTest      : Started BookAuthorTest in 1.1 seconds (JVM running for 7.191)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
