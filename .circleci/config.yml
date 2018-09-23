@@ -9,5 +9,5 @@ jobs:
       - checkout
       - run:
           name: Download Dependencies
-          command: ./gradlew clean build
+          command: ./spring-mongodb-rest-api/gradlew clean build
 
