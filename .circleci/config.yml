@@ -8,6 +8,6 @@ jobs:
     steps:
       - checkout
       - run:
-        name: Download Dependencies
-        command: ./gradlew clean build
+          name: Download Dependencies
+          command: ./gradlew clean build
 
