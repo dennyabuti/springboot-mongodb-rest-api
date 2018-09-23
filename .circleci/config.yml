@@ -1,0 +1,10 @@
+version: 2 # use CircleCI 2.0
+jobs:
+  build:
+    working_directory: ~/springboot-mongodb-rest-api/springboot-mongodb-rest-api
+    steps:
+      - checkout
+      - run:
+        name: Download Dependencies
+        command: ./gradlew clean build
+
