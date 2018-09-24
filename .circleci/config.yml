@@ -14,7 +14,7 @@ jobs:
           command: ./gradlew build
       - save_cache:
           paths: 
-          - ~/.gradle
+            - ~/.gradle
           key: gradle-{{ checksum "build.gradle" }}
       - store_artifacts:
           path: build/libs
