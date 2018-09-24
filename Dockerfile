@@ -14,17 +14,20 @@ RUN apt-get install -y mongodb-org
 
 # Create the default data directory
 RUN mkdir -p /data/db
-
-#VOLUME /tmp/data/db 
-
 EXPOSE 27017
-CMD ["mongod"]
-RUN mkdir /app
-COPY . /app
 
+# Add seed data to mongodb
+RUN mkdir /seed_data
+COPY ./mongo-db-dump/Awesome_Library /seed_data
+
+# Add spring boot REST app
+RUN mkdir /app
+COPY ./springboot-mongodb-rest-api /app
+COPY ./entrypoint.sh /
 EXPOSE 8080
 WORKDIR  /app
-CMD echo pwd
+
+# Build the REST app
 RUN ./gradlew clean build
-ENTRYPOINT java -jar /app/build/libs/springboot-mongodb-rest-api-0.1.0.jar
+ENTRYPOINT ["/entrypoint.sh"]
 
