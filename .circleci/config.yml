@@ -13,9 +13,9 @@ jobs:
           name: Download Dependencies
           command: ./gradlew build
       - save_cache:
-        paths: 
-         - ~/.gradle
-        key: gradle-{{ checksum "build.gradle" }}
+          paths: 
+          - ~/.gradle
+          key: gradle-{{ checksum "build.gradle" }}
       - store_artifacts:
-        path: build/libs
-        destination: libs
+          path: build/libs
+          destination: libs
