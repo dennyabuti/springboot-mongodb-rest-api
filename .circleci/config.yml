@@ -1,7 +1,6 @@
 version: 2 # use CircleCI 2.0
 jobs:
   build:
-    #working_directory: ~/springboot-mongodb-rest-api/springboot-mongodb-rest-api
     working_directory: ~/code
     docker: # run the steps with Docker
       - image: circleci/openjdk:8-jdk-browsers
