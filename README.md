@@ -1,4 +1,7 @@
 # springboot-mongodb-rest-api
+
+[![CircleCI](https://circleci.com/gh/dennyabuti/springboot-mongodb-rest-api.svg?style=svg)](https://circleci.com/gh/dennyabuti/springboot-mongodb-rest-api)
+
 MongoDB restful api with Spring Boot
 ### Running
 - clone the Git repository (`git clone https://github.com/dennyabuti/springboot-mongodb-rest-api.git`)
