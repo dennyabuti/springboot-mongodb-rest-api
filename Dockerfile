@@ -24,6 +24,6 @@ EXPOSE 8080
 WORKDIR  /app
 
 # Build the REST app
-RUN ./gradlew clean build
+#RUN ./gradlew clean build
 ENTRYPOINT ["/entrypoint.sh"]
 
