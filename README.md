@@ -1,6 +1,4 @@
-# springboot-mongodb-rest-api
-
-[![CircleCI](https://circleci.com/gh/dennyabuti/springboot-mongodb-rest-api.svg?style=svg)](https://circleci.com/gh/dennyabuti/springboot-mongodb-rest-api)
+# springboot-mongodb-rest-api [![CircleCI](https://circleci.com/gh/dennyabuti/springboot-mongodb-rest-api.svg?style=svg)](https://circleci.com/gh/dennyabuti/springboot-mongodb-rest-api)
 
 MongoDB restful api with Spring Boot
 ### Running
